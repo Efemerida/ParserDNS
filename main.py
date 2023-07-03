@@ -79,7 +79,7 @@ def main():
         print("Что то пошло не так...")
         return
     COOKIES['qrator_jsid'] = JsId
-    url = 'https://www.dns-shop.ru/catalog/recipe/782ee054089287e3/smart-casy/'
+    url = 'https://www.dns-shop.ru/catalog/17a892f816404e77/noutbuki/'
     data = {}
     print("Начало поиска товаров...")
     lastPage = int(getPageCount(url))
@@ -102,3 +102,5 @@ def main():
 
 if __name__=='__main__':
     main()
+
+

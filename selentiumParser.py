@@ -20,11 +20,9 @@ def getCookie():
     options.add_experimental_option('useAutomationExtension', False)
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_argument("--disable-blink-features")
+    options.add_argument("--headless")
     options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_argument("user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36")
-
-    exec_path = os.path.join(os.getcwd(), 'driver', 'chromedriver.exe') if system() == "Windows" else \
-        os.path.join(os.getcwd(), 'driver', 'chromedriver')
 
     driver = webdriver.Chrome(options=options, service=ChromeService(ChromeDriverManager().install()))
 
@@ -37,19 +35,6 @@ def getCookie():
             delete window.cdc_adoQpoasnfa76pfcZLmcfl_Proxy;
       '''
     })
-
-    stealth(driver=driver,
-            user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
-                       'Chrome/83.0.4103.53 Safari/537.36',
-            languages=["ru-RU", "ru"],
-            vendor="Google Inc.",
-            platform="Win32",
-            webgl_vendor="Intel Inc.",
-            renderer="Intel Iris OpenGL Engine",
-            fix_hairline=True,
-            run_on_insecure_origins=True,
-            )
-    from selenium.webdriver.support import expected_conditions as ec
 
     driver.get('https://www.dns-shop.ru/catalog/17a8a01d16404e77/smartfony/')
     time.sleep(1)
